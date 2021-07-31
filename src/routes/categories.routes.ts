@@ -2,7 +2,8 @@
 import { Router } from 'express';
 
 // importando modelo de Array[categorias]
-import { CategoriesRepository } from '../repositories/CategoriesRepository';
+import { CategoriesRepository } from '../modules/cars/repositories/CategoriesRepository';
+import { CreateCategoryService } from '../modules/cars/services/CreateCategoryService';
 
 // ativando express
 const categoriesRoutes = Router();
@@ -13,7 +14,12 @@ categoriesRoutes.post('/', (request, response) => {
     // receber dados do req body
     const { name, description } = request.body;
 
-    categoriesRepository.create({ name, description });
+    const createCategoryService = new CreateCategoryService(
+        categoriesRepository,
+    );
+
+    createCategoryService.execute({ name, description });
+
     // retornar status e objeto json
     return response.status(201).send();
 });
