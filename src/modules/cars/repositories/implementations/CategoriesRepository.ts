@@ -1,16 +1,27 @@
-import { Category } from '../model/Category';
+import { Category } from '../../model/Category';
 import {
     ICategoriesRepository,
     ICreateCategoryDTO,
-} from './ICategoriesRepository';
+} from '../ICategoriesRepository';
+
+// padrão singleton
 
 class CategoriesRepository implements ICategoriesRepository {
     // atribuindo modelo de categorias no array
     private categories: Category[];
 
-    constructor() {
+    private static INSTANCE: CategoriesRepository;
+
+    private constructor() {
         // para chamar os atributos de dentro da classe ultilizamos o 'this'
         this.categories = [];
+    }
+
+    public static getInstance(): CategoriesRepository {
+        if (!CategoriesRepository.INSTANCE) {
+            CategoriesRepository.INSTANCE = new CategoriesRepository();
+        }
+        return CategoriesRepository.INSTANCE;
     }
 
     create({ name, description }: ICreateCategoryDTO): void {
