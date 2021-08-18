@@ -1,8 +1,13 @@
+// Extensões
 import express from 'express';
 import swaggerUI from 'swagger-ui-express';
 
+// Rotas/ documentação
 import { router } from './routes';
 import swaggerFile from './swagger.json';
+
+// Banco de dados
+import './database';
 
 const app = express();
 
