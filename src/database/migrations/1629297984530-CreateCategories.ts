@@ -12,14 +12,17 @@ export class CreateCategories1629293319924 implements MigrationInterface {
                         type: 'uuid',
                         isPrimary: true,
                     },
+
                     {
                         name: 'name',
                         type: 'varchar',
                     },
+
                     {
                         name: 'description',
                         type: 'varchar',
                     },
+
                     {
                         name: 'created_at',
                         type: 'timestamp',
