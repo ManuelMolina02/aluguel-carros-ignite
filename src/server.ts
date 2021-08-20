@@ -1,6 +1,6 @@
 // Extensões
 import 'reflect-metadata';
-import express, { NextFunction, Request } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import swaggerUI from 'swagger-ui-express';
 import 'express-async-errors';
 
