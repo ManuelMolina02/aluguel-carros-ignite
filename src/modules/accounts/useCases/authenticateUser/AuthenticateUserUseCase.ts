@@ -6,54 +6,54 @@ import { AppError } from '../../../../errors/AppError';
 import { IUsersRepository } from '../../repositories/IUsersRepository';
 
 interface IRequest {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 }
 
 interface IResponse {
-    user: {
-        name: string;
-        email: string;
-    };
-    token: string;
+  user: {
+    name: string;
+    email: string;
+  };
+  token: string;
 }
 
 @injectable()
 class AuthenticateUserUseCase {
-    constructor(
-        @inject('UsersRepository')
-        private usersRepository: IUsersRepository,
-    ) {}
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
+  ) {}
 
-    async execute({ email, password }: IRequest): Promise<IResponse> {
-        // user exists?
+  async execute({ email, password }: IRequest): Promise<IResponse> {
+    // user exists?
 
-        const user = await this.usersRepository.findByEmail(email);
+    const user = await this.usersRepository.findByEmail(email);
 
-        if (!user) {
-            throw new AppError('Email incorrect');
-        }
-
-        const passwordMath = await compare(password, user.password);
-
-        if (!passwordMath) {
-            throw new AppError('Password incorrect');
-        }
-
-        const token = sign({}, '8f44d5607a212c657178658ed9d5373b', {
-            subject: user.id,
-            expiresIn: '1d',
-        });
-        const tokenReturn: IResponse = {
-            token,
-            user: {
-                name: user.name,
-                email: user.email,
-            },
-        };
-
-        return tokenReturn;
+    if (!user) {
+      throw new AppError('Email incorrect');
     }
+
+    const passwordMath = await compare(password, user.password);
+
+    if (!passwordMath) {
+      throw new AppError('Password incorrect');
+    }
+
+    const token = sign({}, '8f44d5607a212c657178658ed9d5373b', {
+      subject: user.id,
+      expiresIn: '1d',
+    });
+    const tokenReturn: IResponse = {
+      token,
+      user: {
+        name: user.name,
+        email: user.email,
+      },
+    };
+
+    return tokenReturn;
+  }
 }
 
 export { AuthenticateUserUseCase };

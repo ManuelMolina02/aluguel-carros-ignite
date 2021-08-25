@@ -8,16 +8,16 @@ import { SpecificationsRepository } from '../../modules/cars/repositories/implem
 import { ISpecificationsRepository } from '../../modules/cars/repositories/ISpecificationsRepository';
 
 container.registerSingleton<ICategoriesRepository>(
-    'CategoriesRepository',
-    CategoriesRepository,
+  'CategoriesRepository',
+  CategoriesRepository,
 );
 
 container.registerSingleton<ISpecificationsRepository>(
-    'SpecificationsRepository',
-    SpecificationsRepository,
+  'SpecificationsRepository',
+  SpecificationsRepository,
 );
 
 container.registerSingleton<IUsersRepository>(
-    'UsersRepository',
-    UsersRepository,
+  'UsersRepository',
+  UsersRepository,
 );

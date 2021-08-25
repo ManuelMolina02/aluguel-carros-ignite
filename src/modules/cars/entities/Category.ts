@@ -24,27 +24,27 @@ class [nameClass] {
 @Entity('categories')
 // criando classe para categorias
 class Category {
-    // '?:' significa que o atributo é opcional
-    @PrimaryColumn()
-    id?: string;
+  // '?:' significa que o atributo é opcional
+  @PrimaryColumn()
+  id?: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    description: string;
+  @Column()
+  description: string;
 
-    @CreateDateColumn()
-    created_at: Date;
+  @CreateDateColumn()
+  created_at: Date;
 
-    // constructor pode ser utilizado quando temos uma classe instanciada
-    constructor() {
-        // se o ID não existir execute, se não continue
-        if (!this.id) {
-            // criar um novo ID
-            this.id = uuidV4();
-        }
+  // constructor pode ser utilizado quando temos uma classe instanciada
+  constructor() {
+    // se o ID não existir execute, se não continue
+    if (!this.id) {
+      // criar um novo ID
+      this.id = uuidV4();
     }
+  }
 }
 
 // exportando atributos da classe

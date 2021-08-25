@@ -4,18 +4,18 @@ import { container } from 'tsyringe';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 
 class AuthenticateUserController {
-    async handle(request: Request, response: Response): Promise<Response> {
-        const { password, email } = request.body;
+  async handle(request: Request, response: Response): Promise<Response> {
+    const { password, email } = request.body;
 
-        const authenticateUseCase = container.resolve(AuthenticateUserUseCase);
+    const authenticateUseCase = container.resolve(AuthenticateUserUseCase);
 
-        const token = await authenticateUseCase.execute({
-            password,
-            email,
-        });
+    const token = await authenticateUseCase.execute({
+      password,
+      email,
+    });
 
-        return response.json(token);
-    }
+    return response.json(token);
+  }
 }
 
 export { AuthenticateUserController };

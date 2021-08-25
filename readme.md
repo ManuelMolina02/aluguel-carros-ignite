@@ -44,7 +44,3 @@ descrição de tabelas
 
  --> this: Toda função JavaScript, ao ser executada, gera uma associação do objeto criado pelo interpretador através da palavra reservada 'this'. O valor do this é constante e ele existe enquanto este contexto de execução existir. No browser, o this “padrão” referencia o objeto global window.
 
-
-
-
-tester
