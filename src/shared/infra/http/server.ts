@@ -5,14 +5,15 @@ import swaggerUI from 'swagger-ui-express';
 import 'express-async-errors';
 
 // Rotas/ documentação
-import { router } from './routes';
-import swaggerFile from './swagger.json';
+import { AppError } from '@shared/errors/AppError';
+import { router } from '@shared/infra/http/routes';
+
+import swaggerFile from '../../../swagger.json';
 
 // Banco de dados
-import './database';
+import '../typeorm';
 
-import './shared/container';
-import { AppError } from './errors/AppError';
+import '@shared/container';
 
 const app = express();
 
