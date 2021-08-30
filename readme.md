@@ -1,3 +1,87 @@
+# Mapeamento da aplicação
+
+
+**RF** => Requisitos funcionais
+
+**RNF** => Requisitos não funcionais
+
+**RN** => Regra de negócio
+
+
+
+## Cars
+
+### Cadastro de Carros
+
+**RF**
+    - Deve ser possível cadastrar um novo carro.
+
+**RN**
+    - Para cadastrar um novo carro o usuário DEVE ser Admin.
+    - Não deve ser possível cadastrar dois carros com a mesma placa.
+    - Não deve ser possível alterar a placa de um carro já cadastrado.
+    - Por padrão o carro deve ser registrado com a disponilidade 'true'.
+
+### Listagem de Carros
+
+**RF**
+    - Deve ser possível listar todos os carros disponiveis.
+    - Deve ser possível listar todos os carros disponiveis pelo nome da categoria.
+    - Deve ser possível listar todos os carros disponiveis pelo nome da marca.
+    - Deve ser possível listar todos os carros disponiveis pelo nome do carro.
+
+**RN**
+    - Não precisa ser um usuário cadastrado para ver a lista de veículos disponiveis.
+
+
+## Specifications Cars
+
+### Cadastrar Especificação no Carro
+
+**RF**
+    - Deve ser possível cadatrar uma especificação no carro
+    - Deve ser possível listar todas as especificações
+    - Deve ser possível listar todos os carros
+
+**RN**
+    - Para cadastrar uma especificação no carro o usuário DEVE ser Admin.
+    - Não deve ser possível cadastrar uma especificação para um carro que não foi registrado no sistema.
+    - Não deve ser possível cadastrar uma especificação já existente no carro.
+
+
+### Cadastrar Imagens do Carro
+**RF** 
+    - Deve ser possível cadastrar imagens de um carro.
+    - Deve ser possível listar todos os carros.
+
+**RNF**
+    - Utilizar multer para upload dos arquivos.
+
+**RN**
+    - Para cadastrar uma imagem no carro o usuário DEVE ser Admin.
+    - O usuário deve poder cadastrar uma ou mais imagens para o mesmo carro.
+
+### Agendamento de Aluguel de um Carro
+**RF**
+    - Deve ser possível cadastrar um aluguel.
+
+**RN**
+    - O aluguel deve ter duração mínima de 24 horas.
+    - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
+    - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.    
+    - O aluguel só pode ser realizado em um carro existente no sistema
+
+
+
+
+
+
+
+
+
+
+# ANOTAÇÕES GERAIS
+
 # Aluguel de Carros
 
 A estrutura de tabelas dessa aplicação pode ser visualizada no arquivo 'diagrama-tabela.png',
