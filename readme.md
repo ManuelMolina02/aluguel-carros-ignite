@@ -19,7 +19,6 @@
 **RN**
     - Para cadastrar um novo carro o usuário DEVE ser Admin.
     - Não deve ser possível cadastrar dois carros com a mesma placa.
-    - Não deve ser possível alterar a placa de um carro já cadastrado.
     - Por padrão o carro deve ser registrado com a disponilidade 'true'.
 
 ### Listagem de Carros
