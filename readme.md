@@ -39,8 +39,7 @@
 
 **RF**
     - Deve ser possível cadatrar uma especificação no carro
-    - Deve ser possível listar todas as especificações
-    - Deve ser possível listar todos os carros
+
 
 **RN**
     - Para cadastrar uma especificação no carro o usuário DEVE ser Admin.
@@ -51,7 +50,6 @@
 ### Cadastrar Imagens do Carro
 **RF** 
     - Deve ser possível cadastrar imagens de um carro.
-    - Deve ser possível listar todos os carros.
 
 **RNF**
     - Utilizar multer para upload dos arquivos.
