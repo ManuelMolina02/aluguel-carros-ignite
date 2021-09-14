@@ -67,9 +67,7 @@
     - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
     - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.    
     - O aluguel só pode ser realizado em um carro existente no sistema
-
-
-
+    - O usuário deve estar logado na aplicação
 
 
 
