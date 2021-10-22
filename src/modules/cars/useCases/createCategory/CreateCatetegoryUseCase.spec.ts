@@ -49,25 +49,25 @@ describe('Create category', () => {
 
   // NÃO deve ser capaz de criar uma nova categoria com o mesmo nome
   it('Should NOT be able to create a new category with name exists', async () => {
+    // objeto de categoria teste
+    const category = {
+      name: 'Category Test',
+      description: 'Category descriprion test',
+    };
+
+    // execute o objeto em createCategorUseCase para criar uma categoria
+    await createCategoryUseCase.execute({
+      name: category.name,
+      description: category.description,
+    });
+
     // espere que esta instancia seja rejeitada com um retorno do tipo AppError
-    expect(async () => {
-      // objeto de categoria teste
-      const category = {
-        name: 'Category Test',
-        description: 'Category descriprion test',
-      };
-
-      // execute o objeto em createCategorUseCase para criar uma categoria
-      await createCategoryUseCase.execute({
-        name: category.name,
-        description: category.description,
-      });
-
+    await expect(
       // criar de novo a mesma categoria
-      await createCategoryUseCase.execute({
+      createCategoryUseCase.execute({
         name: category.name,
         description: category.description,
-      });
-    }).rejects.toBeInstanceOf(AppError);
+      }),
+    ).rejects.toEqual(new AppError('Category already exists!'));
   });
 });
